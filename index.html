@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+	<html> 
+		<head>
+		</head>
+		<style> 
+		.street {
+			fill: #fff;
+			stroke:#ccc;
+		}
+		</style>
+			
+		
+	<body>
+		<h1> Hello </h1>
+		<div id="two"> Here </div>
+		<script src="d3/d3.js"></script>
+		<script src="d3/d3.min.js"></script>
+
+		<script src="sfmaps/streets.json"></script>
+		<script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+		<script src="//d3js.org/topojson.v1.min.js"></script>
+		<script src="https://unpkg.com/topojson@3"></script>
+		<script src="https://d3js.org/d3-array.v1.min.js"></script>
+		<script src="https://d3js.org/d3-geo.v1.min.js"></script>
+		<script>
+
+
+
+
+		// var projection = d3.geoAlbers(),
+		// path = d3.geoPath(projection);
+
+		var path = d3.geo.path()
+
+		var width = 960, height = 1200;
+
+		 var svg = d3.select("#two").append("svg").attr("width", width).attr("height", height)
+
+		 d3.json("sfmaps/streets.topo.json", function (error, streets) {
+		 	if (error) return console.error(error);
+		 	console.log("the streets'", streets)
+
+		 	// svg.append("path").datum(streets.features).attr("d", d3.geo.path().projection(d3.geo.mercator()));
+
+		 	svg.append("path").datum(topojson.feature(streets, streets.objects.streets)).
+		 		attr("class", "street").attr("d", path);
+
+		 		// var subunits = topojson.feature(streets, streets.objects.streets)
+
+		 		// var projection = d3.geo.mercator().scale(500).translate([width/2, height/2])
+
+		 		// var projection = d3.geo.albers()
+				 //    .center([0, 55.4])
+				 //    .rotate([4.4, 0])
+				 //    .parallels([50, 60])
+				 //    .scale(6000)
+				 //    .translate([width / 2, height / 2]);
+
+		 		// var path = d3.geo.path().projection(projection)
+
+		 		// svg.append("path").datum(subunits).attr("d", path);
+		 	console.log('the svg', svg)
+		 })
+
+		 
+
+		</script>
+	</body>
+</html>

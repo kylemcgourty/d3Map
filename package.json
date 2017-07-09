@@ -1,0 +1,27 @@
+{
+  "name": "kam2017-mapproject",
+  "version": "1.0.0",
+  "description": "SF Maps",
+  "author": "Kyle McGourty <kyle.mcgourty@gmail.com>",
+  "contributors": [
+    {
+      "name": "Foo Bar",
+      "email": "foo.bar@example.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https//github.com/kylemcgourty/maps"
+  },
+  "dependencies": {
+    "d3-geo": "^1.6.4",
+    "topojson-client": "^3.0.0"
+  },
+  "files": [
+    "package.json",
+    "README.md",
+    "License"
+  ],
+  "devDependencies": {},
+  "license": "MIT"
+}
